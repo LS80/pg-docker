@@ -1,0 +1,21 @@
+version: "2.4"
+services:
+  primary:
+    build: primary
+    networks:
+      default:
+        aliases:
+          - cluster
+  replica:
+    build: replica
+    depends_on:
+      - primary
+    networks:
+      default:
+        aliases:
+          - cluster
+  client:
+    build: client
+    depends_on:
+      - primary
+      - replica
