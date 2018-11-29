@@ -4,6 +4,8 @@ require 'bundler/setup'
 require 'active_record'
 require 'pg'
 
+$stdout.sync = true
+
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 100.times do |i|
