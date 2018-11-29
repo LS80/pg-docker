@@ -10,6 +10,11 @@ Connect the application to the `cluster` host which will resolve to either the p
 docker-compose run client psql --host cluster --user postgres --tuples-only --command 'select pg_is_in_recovery()'
 ```
 
+```
+docker-compose build client
+docker-compose run client
+```
+
 Trigger failover.
 ```
 docker-compose exec replica touch /tmp/failover

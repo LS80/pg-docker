@@ -9,4 +9,6 @@ wait_for_postgres () {
 wait_for_postgres primary
 wait_for_postgres replica
 
+psql --host=primary --user=postgres -c 'CREATE TABLE IF NOT EXISTS temp (i int)' postgres
+
 exec "$@"
